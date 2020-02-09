@@ -3,7 +3,7 @@ require('./db/mongoose')
 const expensesRouter = require('./routers/expenses')
 const headersSettings = require('./configuration/headers.config')
 
-const { KEYS, HEADERS_SETTINGS, METHODS } = HEADERS_CONFIG
+const { KEYS, HEADERS_SETTINGS, METHODS } = headersSettings
 const app = express()
 const port = process.env.PORT
 
