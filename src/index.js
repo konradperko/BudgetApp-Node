@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 require('./db/mongoose')
 const expensesRouter = require('./routers/expenses')
 const headersSettings = require('./configuration/headers.config')
@@ -7,6 +8,7 @@ const { KEYS, HEADERS_SETTINGS, METHODS } = headersSettings
 const app = express()
 const port = process.env.PORT
 
+<<<<<<< HEAD
 const allowCrossDomain = (req, res, next) => {
     const {
         ACCESS_CONTROL_ALLOW_ORIGIN,
@@ -33,6 +35,9 @@ const allowCrossDomain = (req, res, next) => {
     next()
 }
 
+=======
+app.use(cors())
+>>>>>>> ef0811339bb300e73cdebcc755467d751cd7eea9
 app.use(express.json())
 app.use(allowCrossDomain)
 app.use(expensesRouter)
