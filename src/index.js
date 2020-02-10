@@ -10,7 +10,7 @@ const port = process.env.PORT
 
 app.use(cors())
 app.use(express.json())
-app.use(allowCrossDomain)
+// app.use(allowCrossDomain)
 app.use(expensesRouter)
 
 app.listen(port, () => {
