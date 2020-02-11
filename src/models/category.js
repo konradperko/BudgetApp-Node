@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { TYPES } = require('../configs/categories.config')
 
 const Category = mongoose.model('Category', {
     name: {
@@ -12,7 +13,7 @@ const Category = mongoose.model('Category', {
     },
     type: {
         type: String,
-        enum: ['EXPENSES', 'EARNINGS'],
+        enum: [...Object.keys(TYPES)],
         required: true
     }
 })

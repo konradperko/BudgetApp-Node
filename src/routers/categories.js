@@ -1,13 +1,10 @@
 const express  = require('express')
+const { CATEGORY_URL, TYPES } = require('../configs/categories.config')
 const Category = require('../models/category')
 const router = express.Router()
+const { EARNINGS, EXPENSES } = TYPES
 
-const TYPES = {
-    EXPENSES: 'EXPENSES',
-    EARNINGS: 'EARNINGS'
-}
-
-router.post('/category', async (req, res) => {
+router.post(CATEGORY_URL, async (req, res) => {
     const category = new Category(req.body)
     try {
         await category.save()
@@ -17,13 +14,16 @@ router.post('/category', async (req, res) => {
     }
 })
 
-router.get('/categories', async ({ query }, res) => {
-    const isNotAnyType = Boolean(query.type && (query.type !== TYPES.EXPENSES && query.type !== TYPES.EARNINGS))
+router.get(CATEGORY_URL, async ({ query }, res) => {
+    const isNotAnyType = Boolean(query.type && (query.type !== EXPENSES && query.type !== EARNINGS))
     const foreignType = isNotAnyType && query.type
     const type = new Map([
-        [TYPES.EXPENSES, TYPES.EXPENSES],
-        [TYPES.EARNINGS, TYPES.EARNINGS],
-        [foreignType, new Error("Only 'EXPENSES' or 'EARNINGS' values are allowed for TYPE.")],
+        [EXPENSES, EXPENSES],
+        [EARNINGS, EARNINGS],
+        [
+          foreignType,
+          new Error("Only 'EXPENSES' or 'EARNINGS' values are allowed for TYPE.")
+        ],
     ]).get(query.type)
 
     try {
