@@ -3,9 +3,7 @@ const cors = require('cors')
 require('./db/mongoose')
 const categoryRouter = require('./routers/categories')
 const expensesRouter = require('./routers/expenses')
-const headersSettings = require('./configuration/headers.config')
 
-const { KEYS, HEADERS_SETTINGS, METHODS } = headersSettings
 const app = express()
 const port = process.env.PORT
 
