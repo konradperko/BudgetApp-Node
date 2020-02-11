@@ -1,6 +1,7 @@
 const express  = require('express')
 const { CATEGORY_URL, TYPES } = require('../configs/categories.config')
 const Category = require('../models/category')
+
 const router = express.Router()
 const { EARNINGS, EXPENSES } = TYPES
 
