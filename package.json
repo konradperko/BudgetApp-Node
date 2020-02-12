@@ -18,11 +18,10 @@
     "url": "https://github.com/konradperko/BudgetApp-Node/issues"
   },
   "homepage": "https://github.com/konradperko/BudgetApp-Node#readme",
-  "dependencies": {
+  "dependencies": {s
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.8.11",
-    "validator": "^12.2.0"
+    "mongoose": "^5.8.11"
   },
   "devDependencies": {
     "env-cmd": "^10.0.1",
