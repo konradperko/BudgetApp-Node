@@ -1,6 +1,7 @@
 const TYPES = {
     EARNINGS: 'EARNINGS',
-    EXPENSES: 'EXPENSES'
+    EXPENSES: 'EXPENSES',
+    SAVINGS: 'SAVINGS'
 }
 const CATEGORY_URL = '/categories'
 
