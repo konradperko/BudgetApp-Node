@@ -5,11 +5,11 @@ const CategorySchema = mongoose.model('Category').schema
 const Expense = mongoose.model('Expense', {
     category: {
         type: CategorySchema,
-        required: true
+        required: true,
     },
     subCategory: {
         type: String,
-        require: true
+        require: true,
     },
     cost: {
         type: Number,

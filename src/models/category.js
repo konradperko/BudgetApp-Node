@@ -24,5 +24,5 @@ const CategoryWithSubCategories = mongoose.model('CategoryWithSubCategories', {
 
 module.exports = {
     Category,
-    CategoryWithSubCategories
+    CategoryWithSubCategories,
 }
