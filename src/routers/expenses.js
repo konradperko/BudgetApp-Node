@@ -17,7 +17,7 @@ router.post('/expenses', async (req, res) => {
             if (docs.category.type !== categoryType) {
                 return res.status(400).send(`Could not match type ${categoryType} with category ${categoryName}`)
             }
-        }
+        },
     )
     CategoryWithSubCategories.findOne(
         { name: categoryName },
