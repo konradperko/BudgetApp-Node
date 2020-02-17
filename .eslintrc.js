@@ -1,6 +1,6 @@
 module.exports = {
     'env': {
-        'browser': false,
+        'node': true,
         'commonjs': true,
         'es6': true
     },
@@ -27,12 +27,14 @@ module.exports = {
         ],
         'quotes': [
             'error',
-            'single'
+            'single',
+            { "avoidEscape": true }
         ],
         'semi': [
             'error',
             'never'
         ],
         "no-console": "off",
+        "no-process-env": "off"
     }
 }

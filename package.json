@@ -10,7 +10,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint --max-warnings=0"
+      "pre-commit": "npm run eslint --max-warnings=0"
     }
   },
   "repository": {

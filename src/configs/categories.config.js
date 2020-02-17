@@ -6,6 +6,6 @@ const TYPES = {
 const CATEGORY_URL = '/categories'
 
 module.exports = {
-  CATEGORY_URL,
-  TYPES,
+    CATEGORY_URL,
+    TYPES,
 }

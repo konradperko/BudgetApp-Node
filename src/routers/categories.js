@@ -26,8 +26,8 @@ router.get(CATEGORY_URL, async ({ query }, res) => {
         [EARNINGS, EARNINGS],
         [SAVINGS, SAVINGS],
         [
-          foreignType,
-          new Error("Only 'EXPENSES', 'EARNINGS' or 'SAVINGS' values are allowed for TYPE.")
+            foreignType,
+            new Error("Only 'EXPENSES', 'EARNINGS' or 'SAVINGS' values are allowed for TYPE."),
         ],
     ]).get(query.type)
 

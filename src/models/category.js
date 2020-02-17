@@ -11,7 +11,7 @@ const CategoryModel = {
         type: String,
         enum: [...Object.keys(TYPES)],
         required: true,
-    }
+    },
 }
 const Category = mongoose.model('Category', CategoryModel)
 const CategoryWithSubCategories = mongoose.model('CategoryWithSubCategories', {
@@ -19,7 +19,7 @@ const CategoryWithSubCategories = mongoose.model('CategoryWithSubCategories', {
     subCategories: {
         type: Array,
         required: true,
-    }
+    },
 })
 
 module.exports = {
