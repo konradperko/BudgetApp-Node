@@ -1,10 +1,15 @@
 const mongoose = require('mongoose')
 
+const CategorySchema = mongoose.model('Category').schema
+
 const Expense = mongoose.model('Expense', {
     category: {
-        type: String,
+        type: CategorySchema,
         required: true,
-        trim: true,
+    },
+    subCategory: {
+        type: String,
+        require: true,
     },
     cost: {
         type: Number,

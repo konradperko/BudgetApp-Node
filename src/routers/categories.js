@@ -1,12 +1,12 @@
 const express  = require('express')
 const { CATEGORY_URL, TYPES } = require('../configs/categories.config')
-const Category = require('../models/category')
+const { CategoryWithSubCategories } = require('../models/category')
 
 const router = express.Router()
-const { EARNINGS, EXPENSES } = TYPES
+const { EARNINGS, EXPENSES, SAVINGS } = TYPES
 
 router.post(CATEGORY_URL, async (req, res) => {
-    const category = new Category(req.body)
+    const category = new CategoryWithSubCategories(req.body)
     try {
         await category.save()
         res.status(201).send(category)
@@ -16,21 +16,25 @@ router.post(CATEGORY_URL, async (req, res) => {
 })
 
 router.get(CATEGORY_URL, async ({ query }, res) => {
-    const isNotAnyType = Boolean(query.type && (query.type !== EXPENSES && query.type !== EARNINGS))
+    const isQueryNotAllowed = query.type !== EXPENSES &&
+        query.type !== EARNINGS &&
+        query.type !== SAVINGS
+    const isNotAnyType = Boolean(query.type && isQueryNotAllowed)
     const foreignType = isNotAnyType && query.type
     const type = new Map([
         [EXPENSES, EXPENSES],
         [EARNINGS, EARNINGS],
+        [SAVINGS, SAVINGS],
         [
-          foreignType,
-          new Error("Only 'EXPENSES' or 'EARNINGS' values are allowed for TYPE.")
+            foreignType,
+            new Error("Only 'EXPENSES', 'EARNINGS' or 'SAVINGS' values are allowed for TYPE."),
         ],
     ]).get(query.type)
 
-    try {
-        if(type instanceof Error) { throw type }
+    if(type instanceof Error) { return res.status(400).send(type.message) }
 
-        const allCategories = await Category.find()
+    try {
+        const allCategories = await CategoryWithSubCategories.find()
         const categories = type
             ? allCategories.filter(category => category.type === type)
             : allCategories

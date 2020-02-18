@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "eslint": "eslint --ext .js src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint --max-warnings=0"
+    }
   },
   "repository": {
     "type": "git",
@@ -25,6 +31,8 @@
   },
   "devDependencies": {
     "env-cmd": "^10.0.1",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
     "nodemon": "^2.0.2"
   }
 }

@@ -1,10 +1,11 @@
 const TYPES = {
     EARNINGS: 'EARNINGS',
-    EXPENSES: 'EXPENSES'
+    EXPENSES: 'EXPENSES',
+    SAVINGS: 'SAVINGS',
 }
 const CATEGORY_URL = '/categories'
 
 module.exports = {
-  CATEGORY_URL,
-  TYPES
+    CATEGORY_URL,
+    TYPES,
 }
