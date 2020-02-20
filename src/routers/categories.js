@@ -1,12 +1,12 @@
 const express  = require('express')
 const { CATEGORY_URL, TYPES } = require('../configs/categories.config')
-const { CategoryWithSubCategories } = require('../models/category')
+const { CategoryWithSubcategories } = require('../models/category')
 
 const router = express.Router()
 const { EARNINGS, EXPENSES, SAVINGS } = TYPES
 
 router.post(CATEGORY_URL, async (req, res) => {
-    const category = new CategoryWithSubCategories(req.body)
+    const category = new CategoryWithSubcategories(req.body)
     try {
         await category.save()
         res.status(201).send(category)
@@ -34,7 +34,7 @@ router.get(CATEGORY_URL, async ({ query }, res) => {
     if(type instanceof Error) { return res.status(400).send(type.message) }
 
     try {
-        const allCategories = await CategoryWithSubCategories.find()
+        const allCategories = await CategoryWithSubcategories.find()
         const categories = type
             ? allCategories.filter(category => category.type === type)
             : allCategories

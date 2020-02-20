@@ -7,7 +7,7 @@ const Expense = mongoose.model('Expense', {
         type: CategorySchema,
         required: true,
     },
-    subCategory: {
+    subcategory: {
         type: String,
         require: true,
     },

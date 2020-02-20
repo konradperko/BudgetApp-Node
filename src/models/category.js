@@ -14,9 +14,9 @@ const CategoryModel = {
     },
 }
 const Category = mongoose.model('Category', CategoryModel)
-const CategoryWithSubCategories = mongoose.model('CategoryWithSubCategories', {
+const CategoryWithSubcategories = mongoose.model('CategoryWithSubcategories', {
     ...CategoryModel,
-    subCategories: {
+    subcategories: {
         type: Array,
         required: true,
     },
@@ -24,5 +24,5 @@ const CategoryWithSubCategories = mongoose.model('CategoryWithSubCategories', {
 
 module.exports = {
     Category,
-    CategoryWithSubCategories,
+    CategoryWithSubcategories,
 }
