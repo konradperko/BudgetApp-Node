@@ -10,7 +10,7 @@ router.post('/expenses', async (req, res) => {
     try {
         await CategoryWithSubcategories.findOne(
             { name: categoryName },
-            ['subcategories', 'type'],
+            null,
             function (err, docs) {
                 if (err) { return res.status(400).send(err) }
                 if (!docs) { return res.status(400).send(`Could not find category ${categoryName}`) }
