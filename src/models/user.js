@@ -30,15 +30,6 @@ const userSchema = new mongoose.Schema({
             }
         },
     },
-    age: {
-        type: Number,
-        default: 0,
-        validate(value) {
-            if (value < 0) {
-                throw new Error('Age must be a positive number!')
-            }
-        },
-    },
 })
 
 userSchema.pre('save', async function (next) {
